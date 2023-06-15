@@ -29,6 +29,20 @@ class Bishop(Figure):
             self.raise_error()
 
 
+def print_chessboard(size):
+    for row in range(size):
+        for col in range(size):
+            if (row + col) % 2 == 0:
+                print("■", end="  ")  # символ для черных клеток
+            else:
+                print("□", end="  ")  # символ для белых клеток
+        print()
+
+# Пример использования функции
+print_chessboard(8)  # Выводит подобие шахматной доски 8x8
+
+
+
 my_bishop = Bishop(6, 6)
 my_bishop.get_coordinates()
 my_bishop.move(6, 7)
