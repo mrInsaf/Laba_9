@@ -2,11 +2,11 @@ class Figure:
 
     letters = "ABCDEFGH"
     def __init__(self, x, y):
-        self.x = x
         self.y = y
+        self.x = self.letters.find(x)
 
     def __set_x(self, x):
-        self.x = x
+        self.x = self.letters.find(x)
 
     def __set_y(self, y):
         self.y = y
@@ -40,7 +40,7 @@ def print_chessboard(figures):
                 coor = figure.get_coordinates()
                 if row == coor[0] and col == coor[1]:
                     if figure.__class__.__name__ == 'Bishop':
-                        print('B', end="  ")
+                        print('♗', end="  ")
                     else:
                         print('*', end="  ")
                     break
@@ -63,13 +63,17 @@ figures = []
 
 
 
-my_bishop = Bishop(6, 6)
+my_bishop = Bishop('A', 0)
+print(my_bishop.get_coordinates())
+# my_figure = Figure(4, 5)
+
+
 
 
 figures.append(my_bishop)
-figures[0].move(4, 7)
-print(figures[0].get_coordinates())
-# print(len(figures))
-
+# figures[0].move(4, 7)
+# print(figures[0].get_coordinates())
+# # print(len(figures))
+#
 print_chessboard(figures)  # Выводит подобие шахматной доски 8x8
 
